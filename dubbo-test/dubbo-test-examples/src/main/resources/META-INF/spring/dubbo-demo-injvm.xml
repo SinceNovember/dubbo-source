@@ -1,0 +1,17 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="demo-injvm"/>
+
+    <dubbo:registry address="N/A"/>
+
+
+    <bean id="userServiceImpl" class="com.alibaba.dubbo.examples.custom.service.UserServiceImpl"/>
+    <dubbo:service interface="com.alibaba.dubbo.examples.custom.api.UserService" ref="userServiceImpl"/>
+
+    <dubbo:reference id="userService" interface="com.alibaba.dubbo.examples.custom.api.UserService" />
+
+</beans>
